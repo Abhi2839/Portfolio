@@ -1,15 +1,19 @@
 :root{
+
 --bg:#0f172a;
 --text:#ffffff;
 --card:#1e293b;
 --accent:#38bdf8;
+
 }
 
 body.light{
---bg:#ffffff;
---text:#000000;
---card:#f1f5f9;
+
+--bg:#f8fafc;
+--text:#0f172a;
+--card:#e2e8f0;
 --accent:#0284c7;
+
 }
 
 body{
@@ -110,8 +114,15 @@ box-shadow:0 20px 40px rgba(0,0,0,0.5);
 .hero{
 
 text-align:center;
-padding:70px 20px 40px 20px;
-background:linear-gradient(145deg,#0f172a,#020617);
+padding:60px 20px 30px 20px;
+
+background:linear-gradient(
+135deg,
+var(--bg),
+var(--card)
+);
+
+transition:0.4s;
 
 }
 
@@ -161,5 +172,38 @@ box-shadow:0 10px 15px rgba(0,0,0,0.4);
 
 transform:translateY(2px);
 box-shadow:0 3px 0 #0c4a6e;
+
+}
+.about-container{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+
+}
+
+.about-card{
+
+background:var(--card);
+padding:25px;
+border-radius:12px;
+transition:0.4s;
+opacity:0;
+transform:translateY(40px);
+
+}
+
+.about-card.show{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+.about-card:hover{
+
+transform:translateY(-8px) scale(1.04);
+box-shadow:0 15px 30px rgba(0,0,0,0.4);
 
 }
