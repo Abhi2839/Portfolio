@@ -611,12 +611,14 @@ section {
   margin-bottom: 12px;
 }
 
+/* ===== SKILL BARS ===== */
 .skill-bar {
   width: 100%;
   height: 6px;
   background: var(--card-border);
   border-radius: 3px;
   overflow: hidden;
+  position: relative;
 }
 
 .skill-fill {
@@ -624,12 +626,59 @@ section {
   background: var(--gradient);
   border-radius: 3px;
   width: 0%;
-  transition: width 1.2s ease-in-out;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
-/* .skill-fill.animated {
-  /* width set by JS */
-/* } */ */
+/* Glowing tip when animating */
+.skill-fill.animated {
+  box-shadow: 0 0 8px var(--accent-glow), 0 0 16px var(--accent-glow);
+}
+
+/* Shimmer effect on animated bars */
+.skill-fill.animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s ease-in-out 1;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Percentage tooltip */
+.skill-fill.animated::before {
+  content: attr(data-width);
+  position: absolute;
+  right: 0;
+  top: -28px;
+  font-size: 0.7rem;
+  font-family: var(--mono);
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--card);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--card-border);
+  opacity: 0;
+  animation: showPercent 0.4s ease 1.2s forwards;
+  white-space: nowrap;
+}
+
+@keyframes showPercent {
+  to { opacity: 1; }
+}
 
 /* ===== CODING PROFILES ===== */
 .profiles-grid {
