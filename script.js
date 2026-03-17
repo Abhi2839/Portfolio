@@ -1,32 +1,22 @@
-const toggle=document.getElementById("theme-toggle");
+const toggle = document.getElementById("theme-toggle");
 
-toggle.onclick=()=>{
+toggle.addEventListener("click", () => {
 
 document.body.classList.toggle("light");
 
 if(document.body.classList.contains("light")){
-
-toggle.innerHTML="☀️";
-
+toggle.innerHTML = "☀️";
 }else{
-
-toggle.innerHTML="🌙";
-
+toggle.innerHTML = "🌙";
 }
 
-};
+localStorage.setItem("theme",
+document.body.classList.contains("light") ? "light" : "dark");
 
-const observer = new IntersectionObserver(entries => {
+});
 
-entries.forEach(entry => {
-if(entry.isIntersecting){
-entry.target.classList.add("show");
+// load saved theme
+if(localStorage.getItem("theme") === "light"){
+document.body.classList.add("light");
+toggle.innerHTML = "☀️";
 }
-});
-
-});
-
-document.querySelectorAll("section").forEach(sec=>{
-sec.classList.add("hidden");
-observer.observe(sec);
-});
