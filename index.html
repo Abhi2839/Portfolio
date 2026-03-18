@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abhey Garg | Portfolio</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <!-- NAVBAR -->
-  <nav id="navbar">
-    <div class="nav-container">
-      <a href="#" class="logo">Abhey Garg</a>
+  <!-- Background -->
+  <div class="page-blur blur-1"></div>
+  <div class="page-blur blur-2"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="logo">Abhey garg</a>
 
       <ul class="nav-links" id="nav-links">
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#profiles" class="nav-link">Coding</a></li>
+        <li><a href="#profiles" class="nav-link">Profiles</a></li>
+        <li><a href="#certificates" class="nav-link">Certificates</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
 
       <div class="nav-actions">
         <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
-          <span class="theme-icon" id="theme-icon">🌙</span>
+          <span id="theme-icon">🌙</span>
         </button>
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
@@ -71,19 +71,19 @@
         </a>
       </div>
 
-      <!-- <div class="hero-stats reveal-hero"> -->
-        <!-- <div class="stat">
-          <span class="stat-number" data-target="500">500</span><span class="stat-plus">+</span>
+      <div class="hero-stats reveal-hero">
+        <div class="stat">
+          <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
           <span class="stat-label">Problems Solved</span>
         </div>
         <div class="stat">
-          <span class="stat-number" data-target="6">4</span><span class="stat-plus">+</span>
+          <span class="stat-number" data-target="6">0</span><span class="stat-plus">+</span>
           <span class="stat-label">Projects Built</span>
         </div>
         <div class="stat">
-          <span class="stat-number" data-target="4">3</span><span class="stat-plus">+</span>
-          <span class="stat-label">Languages</span> -->
-        <!-- </div>
+          <span class="stat-number" data-target="4">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Languages</span>
+        </div>
       </div>
     </div>
 
@@ -91,335 +91,278 @@
       <div class="mouse">
         <div class="wheel"></div>
       </div>
-      <!-- <p>Scroll Down</p> -->
-    <!-- </div> -->
+      <p>Scroll Down</p>
+    </div>
   </header>
 
-
-  <!-- ABOUT -->
-  <section id="about">
-    <h2 class="section-title reveal">
-      <span class="title-number"></span> About Me
-    </h2>
-    <div class="section-line reveal"></div>
-
-    <div class="about-container">
-
-      <div class="about-card glass reveal">
-        <div class="about-icon">👨‍💻</div>
-        <h3>Who I Am</h3>
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">About</span>
+        <h2>Turning ideas into code and code into results.</h2>
         <p>
-          Computer Science student passionate about software development,
-          machine learning and creative problem solving.
+          I’m a Computer Science student who loves software development, problem solving,
+          and machine learning. My main strength is C++, and I actively work on DSA while
+          building projects that improve both my development and analytical skills.
         </p>
       </div>
 
-      <div class="about-card glass reveal">
-        <div class="about-icon">💻</div>
-        <h3>Programming</h3>
-        <p>
-          Primary language is C++ and I actively practice
-          Data Structures &amp; Algorithms on LeetCode,
-          GeeksforGeeks and Codeforces.
-        </p>
-      </div>
-
-      <div class="about-card glass reveal">
-        <div class="about-icon">🤖</div>
-        <h3>Machine Learning</h3>
-        <p>
-          Building ML projects using Python libraries like
-          NumPy, Pandas and Scikit-Learn to solve real-world problems.
-        </p>
-      </div>
-
-      <div class="about-card glass reveal">
-        <div class="about-icon">🚀</div>
-        <h3>Goal</h3>
-        <p>
-          Focused on improving development skills,
-          building impactful projects and preparing
-          for top software engineering roles.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <h2 class="section-title reveal">
-      <span class="title-number"></span> Skills &amp; Technologies
-    </h2>
-    <div class="section-line reveal"></div>
-
-    <div class="skills-category reveal">
-      <h3 class="category-title">🔤 Programming Languages</h3>
-      <div class="tech-grid">
-        <div class="tech-card glass reveal">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
-          <p>C++</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
+      <div class="about-grid">
+        <div class="info-card glass fade-up">
+          <div class="card-icon">💻</div>
+          <h3>Development</h3>
+          <p>Building clean and responsive applications with strong focus on logic, usability, and structure.</p>
         </div>
-        <div class="tech-card glass reveal">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
-          <p>C</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
+        <div class="info-card glass fade-up">
+          <div class="card-icon">🧠</div>
+          <h3>Problem Solving</h3>
+          <p>Practicing DSA regularly on coding platforms to strengthen algorithmic thinking and speed.</p>
         </div>
-        <div class="tech-card glass reveal">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-          <p>Python</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
+        <div class="info-card glass fade-up">
+          <div class="card-icon">🤖</div>
+          <h3>Machine Learning</h3>
+          <p>Using Python tools like NumPy, Pandas, and Scikit-Learn to create practical ML-based solutions.</p>
         </div>
-        <div class="tech-card glass reveal">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-          <p>Java</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="skills-category reveal">
-      <h3 class="category-title">📚 Frameworks &amp; Libraries</h3>
-      <div class="tech-grid">
-        <div class="tech-card glass reveal">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy">
-          <p>NumPy</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
-        </div>
-        <div class="tech-card glass reveal">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas">
-          <p>Pandas</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="78%"></div></div>
-        </div>
-        <div class="tech-card glass reveal">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-Learn">
-          <p>Scikit-Learn</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div>
-        </div>
-        <div class="tech-card glass reveal">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI">
-          <p>FastAPI</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="65%"></div></div>
-        </div>
-        <div class="tech-card glass reveal">
-          <img src="https://streamlit.io/images/brand/streamlit-logo-primary-colormark-darktext.png" alt="Streamlit">
-          <p>Streamlit</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="skills-category reveal">
-      <h3 class="category-title">🛠️ Tools</h3>
-      <div class="tech-grid">
-        <div class="tech-card glass reveal">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
-          <p>Git</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
-        </div>
-        <div class="tech-card glass reveal">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-          <p>GitHub</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
+        <div class="info-card glass fade-up">
+          <div class="card-icon">🚀</div>
+          <h3>Growth Mindset</h3>
+          <p>Always learning, improving, and exploring better ways to write code and build impactful projects.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Skills -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">Skills</span>
+        <h2>Tools and technologies I work with.</h2>
+      </div>
 
-  <!-- CODING PROFILES -->
-  <section id="profiles">
-    <h2 class="section-title reveal">
-      <span class="title-number"></span> Coding Profiles
-    </h2>
-    <div class="section-line reveal"></div>
+      <div class="skills-wrapper">
+        <div class="skills-block glass fade-up">
+          <h3>Programming Languages</h3>
+          <div class="skill-item">
+            <div class="skill-top"><span>C++</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span>C</span><span>85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span>Python</span><span>80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span>Java</span><span>70%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
+          </div>
+        </div>
 
-    <div class="profiles-grid">
+        <div class="skills-block glass fade-up">
+          <h3>Libraries & Frameworks</h3>
+          <div class="chip-wrap">
+            <span class="chip">NumPy</span>
+            <span class="chip">Pandas</span>
+            <span class="chip">Scikit-Learn</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">Streamlit</span>
+          </div>
 
-      <div class="profile-card glass reveal">
-        <div class="profile-icon">
+          <h3 class="tools-title">Tools</h3>
+          <div class="chip-wrap">
+            <span class="chip">Git</span>
+            <span class="chip">GitHub</span>
+            <span class="chip">VS Code</span>
+            <span class="chip">Jupyter</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profiles -->
+  <section class="section" id="profiles">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">Coding Profiles</span>
+        <h2>Where I practice and compete.</h2>
+      </div>
+
+      <div class="card-grid profiles-grid">
+        <div class="profile-card glass fade-up">
           <img src="https://cdn.iconscout.com/icon/free/png-256/leetcode-3521542-2944960.png" alt="LeetCode">
+          <h3>LeetCode</h3>
+          <p>Sharpening algorithmic thinking and interview-level problem solving through regular practice.</p>
+          <a href="https://leetcode.com/abhey_2905" target="_blank" class="btn btn-outline">Visit Profile</a>
         </div>
-        <h3>LeetCode</h3>
-        <p>Solving DSA problems to sharpen algorithmic thinking and ace interviews.</p>
-        <a href="https://leetcode.com/abhey_2905" target="_blank" class="btn btn-outline">
-          Visit Profile →
-        </a>
-      </div>
 
-      <div class="profile-card glass reveal">
-        <div class="profile-icon">
+        <div class="profile-card glass fade-up">
           <img src="https://media.geeksforgeeks.org/gfg-gg-logo.svg" alt="GeeksforGeeks">
+          <h3>GeeksforGeeks</h3>
+          <p>Learning core CS concepts and solving diverse coding challenges across multiple topics.</p>
+          <a href="https://www.geeksforgeeks.org/profile/gabhey6vxi" target="_blank" class="btn btn-outline">Visit Profile</a>
         </div>
-        <h3>GeeksforGeeks</h3>
-        <p>Practicing a wide range of coding problems and learning core CS concepts.</p>
-        <a href="https://www.geeksforgeeks.org/profile/gabhey6vxi" target="_blank" class="btn btn-outline">
-          Visit Profile →
-        </a>
-      </div>
 
-      <div class="profile-card glass reveal">
-        <div class="profile-icon">
+        <div class="profile-card glass fade-up">
           <img src="https://cdn.iconscout.com/icon/free/png-256/codeforces-3629285-3031869.png" alt="Codeforces">
+          <h3>Codeforces</h3>
+          <p>Improving contest performance, speed, and decision-making under time pressure.</p>
+          <a href="https://codeforces.com/profile/gabhey2005" target="_blank" class="btn btn-outline">Visit Profile</a>
         </div>
-        <h3>Codeforces</h3>
-        <p>Competing in contests to improve speed and problem-solving under pressure.</p>
-        <a href="https://codeforces.com/profile/gabhey2005" target="_blank" class="btn btn-outline">
-          Visit Profile →
-        </a>
-      </div>
 
-    </div>
-  </section>
-
-
-  <!-- CODOLIO DASHBOARD -->
-  <section id="codolio">
-    <h2 class="section-title reveal">
-      <span class="title-number"></span> Coding Dashboard
-    </h2>
-    <div class="section-line reveal"></div>
-
-    <div class="codolio-container reveal">
-      <div class="codolio-card glass">
-        <div class="codolio-icon">📊</div>
-        <h3>My Coding Activity</h3>
-        <p>
-          Track my problem-solving progress and coding activity across
-          LeetCode, GeeksforGeeks and Codeforces — all in one place.
-        </p>
-        <a href="https://codolio.com/profile/Abhi2839" target="_blank" class="btn btn-primary">
-          View Full Codolio Profile →
-        </a>
+        <div class="profile-card glass fade-up">
+          <img src="codolio.png" alt="Dashboard">
+          <h3>Codolio</h3>
+          <p>A single dashboard to track coding activity and progress across multiple platforms.</p>
+          <a href="https://codolio.com/profile/Abhi2839" target="_blank" class="btn btn-outline">Visit Dashboard</a>
+        </div>
       </div>
     </div>
   </section>
 
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2 class="section-title reveal">
-      <span class="title-number"></span> Projects
-    </h2>
-    <div class="section-line reveal"></div>
-
-    <div class="project-grid">
-
-      <div class="project-card glass reveal">
-        <div class="project-header">
-          <span class="project-icon">🎬</span>
-          <a href="https://github.com/Abhi2839/Movie-Recommend-System" target="_blank" class="project-link">↗</a>
-        </div>
-        <h3>Movie Recommendation System</h3>
-        <p>
-          Recommendation engine suggesting movies
-          based on similarity metrics and user preferences.
-        </p>
-        <div class="project-tags">
-          <span>Python</span>
-          <span>Scikit-Learn</span>
-          <span>Streamlit</span>
-        </div>
-        <a href="https://github.com/Abhi2839/Movie-Recommend-System" target="_blank" class="btn btn-outline">
-          View on GitHub →
-        </a>
+  <!-- Certificates -->
+  <section class="section" id="certificates">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">Certificates</span>
+        <h2>Learning backed by verified achievements.</h2>
       </div>
 
-      <div class="project-card glass reveal">
-        <div class="project-header">
-          <span class="project-icon">🏦</span>
-          <a href="https://github.com/Abhi2839/Loan-Approval-Model" target="_blank" class="project-link">↗</a>
+      <div class="card-grid certificates-grid">
+        <div class="cert-card glass fade-up">
+          <div class="cert-image">
+            <img src="https://drive.google.com/thumbnail?id=14wEPaayrFJm8AFqLDy8YqJjDcC0RvQPf&sz=w800" alt="Certificate 1">
+          </div>
+          <div class="cert-content">
+            <span class="cert-badge">Verified</span>
+            <h3>Certificate of Achievement</h3>
+            <p>Issued by Authorized Platform</p>
+            <a href="https://drive.google.com/file/d/14wEPaayrFJm8AFqLDy8YqJjDcC0RvQPf/view?usp=drive_link" target="_blank" class="btn btn-outline">View Certificate</a>
+          </div>
         </div>
-        <h3>Loan Approval Prediction</h3>
-        <p>
-          Machine learning model predicting loan approval
-          based on applicant financial details.
-        </p>
-        <div class="project-tags">
-          <span>Python</span>
-          <span>Pandas</span>
-          <span>ML</span>
-        </div>
-        <a href="https://github.com/Abhi2839/Loan-Approval-Model" target="_blank" class="btn btn-outline">
-          View on GitHub →
-        </a>
-      </div>
 
-      <div class="project-card glass reveal">
-        <div class="project-header">
-          <span class="project-icon">🎓</span>
-          <a href="https://github.com/Abhi2839/student-dropout-analysis" target="_blank" class="project-link">↗</a>
+        <div class="cert-card glass fade-up">
+          <div class="cert-image">
+            <img src="https://drive.google.com/thumbnail?id=1LLfXwYAfbiGeFjChnZxEW2sJsaMApLC_&sz=w800" alt="Certificate 2">
+          </div>
+          <div class="cert-content">
+            <span class="cert-badge">Verified</span>
+            <h3>Certificate of Completion</h3>
+            <p>Issued by Authorized Platform</p>
+            <a href="https://drive.google.com/file/d/1LLfXwYAfbiGeFjChnZxEW2sJsaMApLC_/view?usp=sharing" target="_blank" class="btn btn-outline">View Certificate</a>
+          </div>
         </div>
-        <h3>Student Dropout Analysis</h3>
-        <p>
-          Predictive analysis identifying students likely
-          to drop out using machine learning models.
-        </p>
-        <div class="project-tags">
-          <span>Python</span>
-          <span>NumPy</span>
-          <span>Analysis</span>
-        </div>
-        <a href="https://github.com/Abhi2839/student-dropout-analysis" target="_blank" class="btn btn-outline">
-          View on GitHub →
-        </a>
-      </div>
 
+        <div class="cert-card glass fade-up">
+          <div class="cert-image">
+            <img src="https://drive.google.com/thumbnail?id=1LLfXwYAfbiGeFjChnZxEW2sJsaMApLC_&sz=w800" alt="Certificate 3">
+          </div>
+          <div class="cert-content">
+            <span class="cert-badge">Verified</span>
+            <h3>Certificate of Completion</h3>
+            <p>Issued by Authorized Platform</p>
+            <a href="https://drive.google.com/file/d/1LLfXwYAfbiGeFjChnZxEW2sJsaMApLC_/view?usp=sharing" target="_blank" class="btn btn-outline">View Certificate</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2 class="section-title reveal">
-      <span class="title-number"></span> Get In Touch
-    </h2>
-    <div class="section-line reveal"></div>
-
-    <div class="contact-container reveal">
-      <p class="contact-text">
-        I'm currently looking for new opportunities. Whether you have a question
-        or just want to say hi, my inbox is always open!
-      </p>
-
-      <div class="contact-icons">
-        <a href="mailto:gabhey2005@gmail.com" target="_blank" class="contact-icon-link glass" aria-label="Email">
-          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
-          <span>Email</span>
-        </a>
-        <a href="https://github.com/Abhi2839" target="_blank" class="contact-icon-link glass" aria-label="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-          <span>GitHub</span>
-        </a>
-        <a href="https://www.linkedin.com/in/abhey-garg-032b53289/" target="_blank" class="contact-icon-link glass" aria-label="LinkedIn">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-          <span>LinkedIn</span>
-        </a>
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">Projects</span>
+        <h2>Some things I’ve built.</h2>
       </div>
 
-      <a href="mailto:gabhey2005@gmail.com" class="btn btn-primary contact-btn">
-        Say Hello 👋
-      </a>
+      <div class="card-grid projects-grid">
+        <div class="project-card glass fade-up">
+          <div class="project-top">
+            <span>🎬</span>
+            <a href="https://github.com/Abhi2839/Movie-Recommend-System" target="_blank">↗</a>
+          </div>
+          <h3>Movie Recommendation System</h3>
+          <p>Recommendation engine that suggests movies using similarity metrics and user preference logic.</p>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>Scikit-Learn</span>
+            <span>Streamlit</span>
+          </div>
+          <a href="https://github.com/Abhi2839/Movie-Recommend-System" target="_blank" class="btn btn-outline">View Project</a>
+        </div>
+
+        <div class="project-card glass fade-up">
+          <div class="project-top">
+            <span>🏦</span>
+            <a href="https://github.com/Abhi2839/Loan-Approval-Model" target="_blank">↗</a>
+          </div>
+          <h3>Loan Approval Prediction</h3>
+          <p>Machine learning project that predicts loan approval status based on applicant information.</p>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>Pandas</span>
+            <span>ML</span>
+          </div>
+          <a href="https://github.com/Abhi2839/Loan-Approval-Model" target="_blank" class="btn btn-outline">View Project</a>
+        </div>
+
+        <div class="project-card glass fade-up">
+          <div class="project-top">
+            <span>🎓</span>
+            <a href="https://github.com/Abhi2839/student-dropout-analysis" target="_blank">↗</a>
+          </div>
+          <h3>Student Dropout Analysis</h3>
+          <p>Predictive analysis project that identifies patterns and students at risk of dropping out.</p>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>NumPy</span>
+            <span>Analysis</span>
+          </div>
+          <a href="https://github.com/Abhi2839/student-dropout-analysis" target="_blank" class="btn btn-outline">View Project</a>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-box glass fade-up">
+        <span class="section-tag">Contact</span>
+        <h2>Let’s build something great together.</h2>
+        <p>
+          I'm currently open to internships, collaborations, and new opportunities.
+          Feel free to reach out through email or connect with me online.
+        </p>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
+        <div class="contact-links">
+          <a href="mailto:gabhey2005@gmail.com" class="contact-link">Email</a>
+          <a href="https://github.com/Abhi2839" target="_blank" class="contact-link">GitHub</a>
+          <a href="https://www.linkedin.com/in/abhey-garg-032b53289/" target="_blank" class="contact-link">LinkedIn</a>
+        </div>
+
+        <a href="mailto:gabhey2005@gmail.com" class="btn btn-primary">Say Hello</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
       <!-- <p class="footer-logo">&lt;AG /&gt;</p> -->
-      <!-- <p>Designed &amp; Built by Abhey Garg</p> -->
+      <p>Designed and built by Abhey Garg</p>
       <p class="footer-copy">© 2026 All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- Back to top -->
+  <button class="back-to-top" id="back-to-top">↑</button>
 
-  <!-- BACK TO TOP -->
-  <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
-
-  <script src="./script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
