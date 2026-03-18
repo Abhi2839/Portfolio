@@ -208,3 +208,15 @@ function runCounters() {
 }
 
 window.addEventListener("load", runCounters);
+function animateSkillBars() {
+  const bars = document.querySelectorAll(".skill-fill");
+
+  bars.forEach((bar) => {
+    const targetWidth = bar.getAttribute("data-width");
+    if (targetWidth) {
+      bar.style.width = targetWidth;
+    }
+  });
+}
+
+window.addEventListener("load", animateSkillBars);
