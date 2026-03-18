@@ -179,3 +179,32 @@
     });
   });
 })();
+
+var nums = document.querySelectorAll(".stat-number");
+const counters = document.querySelectorAll(".stat-number");
+let started = false;
+
+function runCounters() {
+  if (started) return;
+  started = true;
+
+  counters.forEach(counter => {
+    const target = Number(counter.getAttribute("data-target"));
+    let count = 0;
+    const step = Math.ceil(target / 50);
+
+    const update = () => {
+      count += step;
+      if (count >= target) {
+        counter.textContent = target;
+      } else {
+        counter.textContent = count;
+        requestAnimationFrame(update);
+      }
+    };
+
+    update();
+  });
+}
+
+window.addEventListener("load", runCounters);
