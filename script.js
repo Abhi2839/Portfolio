@@ -1,229 +1,181 @@
-// ===== THEME TOGGLE =====
-const themeToggle = document.getElementById("theme-toggle");
-const themeIcon = themeToggle.querySelector(".theme-icon");
+(function () {
+  const body = document.body;
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("nav-links");
+  const navbar = document.getElementById("navbar");
+  const backToTop = document.getElementById("back-to-top");
+  const typingText = document.getElementById("typing-text");
+  const navLinkEls = document.querySelectorAll(".nav-link");
+  const sections = document.querySelectorAll("section");
+  const fadeEls = document.querySelectorAll(".fade-up");
+  const counters = document.querySelectorAll(".counter");
+  const skillBars = document.querySelectorAll(".skill-fill");
 
-function setTheme(theme) {
-  if (theme === "light") {
-    document.body.classList.add("light");
-    themeIcon.textContent = "☀️";
-  } else {
-    document.body.classList.remove("light");
-    themeIcon.textContent = "🌙";
-  }
-  localStorage.setItem("theme", theme);
-}
-
-themeToggle.addEventListener("click", () => {
-  const isLight = document.body.classList.contains("light");
-  setTheme(isLight ? "dark" : "light");
-});
-
-// Load saved theme
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) setTheme(savedTheme);
-
-
-// ===== HAMBURGER MENU =====
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
-
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navLinks.classList.toggle("open");
-});
-
-// Close menu on link click
-document.querySelectorAll(".nav-link").forEach((link) => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navLinks.classList.remove("open");
-  });
-});
-
-
-// ===== NAVBAR SCROLL EFFECT =====
-const navbar = document.getElementById("navbar");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-});
-
-
-// ===== ACTIVE NAV LINK ON SCROLL =====
-const sections = document.querySelectorAll("section");
-const navLinkElements = document.querySelectorAll(".nav-link");
-
-function updateActiveNav() {
-  let current = "";
-
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 120;
-    if (window.scrollY >= sectionTop) {
-      current = section.getAttribute("id");
+  // Theme
+  function setTheme(theme) {
+    if (theme === "light") {
+      body.classList.add("light");
+      themeIcon.textContent = "☀️";
+    } else {
+      body.classList.remove("light");
+      themeIcon.textContent = "🌙";
     }
-  });
-
-  navLinkElements.forEach((link) => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active");
-    }
-  });
-}
-
-window.addEventListener("scroll", updateActiveNav);
-
-
-// ===== TYPING ANIMATION =====
-const typingText = document.getElementById("typing-text");
-const phrases = [
-  "Software Developer",
-  "ML Enthusiast",
-  "Problem Solver",
-  "C++ Programmer",
-  "Python Developer",
-];
-
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typingSpeed = 80;
-
-function typeEffect() {
-  const currentPhrase = phrases[phraseIndex];
-
-  if (isDeleting) {
-    typingText.textContent = currentPhrase.substring(0, charIndex - 1);
-    charIndex--;
-    typingSpeed = 40;
-  } else {
-    typingText.textContent = currentPhrase.substring(0, charIndex + 1);
-    charIndex++;
-    typingSpeed = 80;
+    localStorage.setItem("theme", theme);
   }
 
-  if (!isDeleting && charIndex === currentPhrase.length) {
-    typingSpeed = 2000;
-    isDeleting = true;
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-    typingSpeed = 300;
-  }
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) setTheme(savedTheme);
 
-  setTimeout(typeEffect, typingSpeed);
-}
+  themeToggle.addEventListener("click", function () {
+    setTheme(body.classList.contains("light") ? "dark" : "light");
+  });
 
-typeEffect();
+  // Mobile Menu
+  hamburger.addEventListener("click", function () {
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("open");
+  });
 
+  navLinkEls.forEach(link => {
+    link.addEventListener("click", function () {
+      hamburger.classList.remove("active");
+      navLinks.classList.remove("open");
+    });
+  });
 
-// ===== COUNTER ANIMATION =====
-function animateCounters() {
-  const counters = document.querySelectorAll(".stat-number");
+  // Typing Effect
+  const phrases = [
+    "Software Developer",
+    "C++ Programmer",
+    "ML Enthusiast",
+    "Problem Solver",
+    "Python Developer"
+  ];
 
-  counters.forEach((counter) => {
-    const target = +counter.getAttribute("data-target");
-    const duration = 2000;
-    const step = target / (duration / 16);
-    let current = 0;
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
 
-    function updateCounter() {
-      current += step;
-      if (current < target) {
-        counter.textContent = Math.floor(current);
-        requestAnimationFrame(updateCounter);
-      } else {
-        counter.textContent = target;
+  function typeLoop() {
+    const currentPhrase = phrases[phraseIndex];
+
+    if (!deleting) {
+      typingText.textContent = currentPhrase.substring(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === currentPhrase.length) {
+        deleting = true;
+        setTimeout(typeLoop, 1400);
+        return;
+      }
+    } else {
+      typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        deleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
       }
     }
 
-    updateCounter();
-  });
-}
+    setTimeout(typeLoop, deleting ? 45 : 85);
+  }
 
+  setTimeout(typeLoop, 500);
 
-// ===== SCROLL REVEAL =====
-const revealElements = document.querySelectorAll(".reveal");
-let countersAnimated = false;
+  // Counter animation
+  let counterStarted = false;
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
+  function animateCounters() {
+    if (counterStarted) return;
 
-        // Animate skill bars
-        const skillFills = entry.target.querySelectorAll(".skill-fill");
-        skillFills.forEach((fill) => {
-          fill.style.width = fill.getAttribute("data-width");
-        });
+    const heroSection = document.getElementById("home");
+    const rect = heroSection.getBoundingClientRect();
 
-        // Animate counters once
-        if (entry.target.classList.contains("hero-stats") && !countersAnimated) {
-          countersAnimated = true;
-          animateCounters();
-        }
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      counterStarted = true;
+
+      counters.forEach(counter => {
+        const target = +counter.getAttribute("data-target");
+        let current = 0;
+        const increment = target / 60;
+
+        const interval = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            counter.textContent = target;
+            clearInterval(interval);
+          } else {
+            counter.textContent = Math.floor(current);
+          }
+        }, 25);
+      });
+    }
+  }
+
+  // Skill bar animation
+  let skillsAnimated = false;
+  function animateSkills() {
+    if (skillsAnimated) return;
+
+    const skillsSection = document.getElementById("skills");
+    const rect = skillsSection.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight - 100) {
+      skillsAnimated = true;
+      skillBars.forEach((bar, index) => {
+        setTimeout(() => {
+          bar.style.width = bar.getAttribute("data-width");
+        }, index * 180);
+      });
+    }
+  }
+
+  // Scroll effects
+  function handleScroll() {
+    // navbar shadow
+    navbar.classList.toggle("scrolled", window.scrollY > 30);
+
+    // back to top
+    backToTop.classList.toggle("show", window.scrollY > 500);
+
+    // active nav
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 140;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute("id");
       }
     });
-  },
-  {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
+
+    navLinkEls.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+
+    // fade up
+    fadeEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) {
+        el.classList.add("show");
+      }
+    });
+
+    animateCounters();
+    animateSkills();
   }
-);
 
-revealElements.forEach((el) => revealObserver.observe(el));
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("load", handleScroll);
+  window.addEventListener("resize", handleScroll);
 
-
-// ===== BACK TO TOP =====
-const backToTop = document.getElementById("back-to-top");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 500) {
-    backToTop.classList.add("visible");
-  } else {
-    backToTop.classList.remove("visible");
-  }
-});
-
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-
-// ===== STAGGER REVEAL DELAYS =====
-document.querySelectorAll(".about-card, .tech-card, .profile-card, .project-card").forEach((card, index) => {
-  card.style.transitionDelay = `${(index % 4) * 0.1}s`;
-});
-// ===== SKILL BAR ANIMATION =====
-function animateSkillBars(container) {
-  var fills = container.querySelectorAll(".skill-fill");
-
-  for (var i = 0; i < fills.length; i++) {
-    (function(fill, index) {
-      var targetWidth = fill.getAttribute("data-width");
-
-      if (!targetWidth || fill.classList.contains("animated")) return;
-
-      // Stagger each bar slightly
-      setTimeout(function() {
-        // Set the width to trigger CSS transition
-        fill.style.width = targetWidth;
-
-        // Add animated class for glow + shimmer + tooltip
-        fill.classList.add("animated");
-
-        // Remove glow after animation completes
-        setTimeout(function() {
-          fill.style.boxShadow = "none";
-        }, 2000);
-
-      }, index * 200); // 200ms stagger between each bar
-
-    })(fills[i], i);
-  }
-}
+  // Back to top
+  backToTop.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+})();
