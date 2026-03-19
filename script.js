@@ -191,7 +191,7 @@ function runCounters() {
   counters.forEach(counter => {
     const target = Number(counter.getAttribute("data-target"));
     let count = 0;
-    const step = Math.ceil(target / 50);
+    const step = Math.ceil(target / 1);
 
     const update = () => {
       count += step;
